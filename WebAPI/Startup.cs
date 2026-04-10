@@ -13,6 +13,7 @@ using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.Jwt;
 using Core.Utilities.TaskScheduler.Hangfire.Models;
 using Hangfire;
+using Core.Utilities.TaskScheduler.Hangfire;
 using HangfireBasicAuthenticationFilter;
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -287,6 +288,9 @@ namespace WebAPI
             
             if (taskSchedulerConfig.Enabled)
             {
+                // Hangfire'ın DI container'ını kullanmasını sağla
+                GlobalConfiguration.Configuration.UseActivator(new ServiceProviderJobActivator(app.ApplicationServices));
+
                 app.UseHangfireDashboard(taskSchedulerConfig.Path, new DashboardOptions
                 {
                     DashboardTitle = taskSchedulerConfig.Title,
