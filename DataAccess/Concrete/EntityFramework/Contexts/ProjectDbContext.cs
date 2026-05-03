@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using Core.Entities.Concrete;
+using Core.Entities.Concrete.Project;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -50,6 +51,11 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<Language> Languages { get; set; }
         public DbSet<Translate> Translates { get; set; }
         public DbSet<UserDevice> UserDevices { get; set; }
+        public DbSet<Sinav> Sinavs { get; set; }
+        public DbSet<Bolum> Bolums { get; set; }
+        public DbSet<Konu> Konus { get; set; }
+        public DbSet<Soru> Sorus { get; set; }
+        public DbSet<SoruSecenek> SoruSeceneks { get; set; }
 
         protected IConfiguration Configuration { get; }
 

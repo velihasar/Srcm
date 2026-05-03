@@ -160,6 +160,11 @@ namespace Business
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ISoruSecenekRepository, SoruSecenekRepository>();
+            services.AddTransient<ISoruRepository, SoruRepository>();
+            services.AddTransient<IKonuRepository, KonuRepository>();
+            services.AddTransient<IBolumRepository, BolumRepository>();
+            services.AddTransient<ISinavRepository, SinavRepository>();
             services.AddTransient<ILogRepository, LogRepository>();
             services.AddTransient<ITranslateRepository, TranslateRepository>();
             services.AddTransient<ILanguageRepository, LanguageRepository>();
@@ -184,6 +189,11 @@ namespace Business
         public void ConfigureStagingServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ISoruSecenekRepository, SoruSecenekRepository>();
+            services.AddTransient<ISoruRepository, SoruRepository>();
+            services.AddTransient<IKonuRepository, KonuRepository>();
+            services.AddTransient<IBolumRepository, BolumRepository>();
+            services.AddTransient<ISinavRepository, SinavRepository>();
             services.AddTransient<ILogRepository, LogRepository>();
             services.AddTransient<ITranslateRepository, TranslateRepository>();
             services.AddTransient<ILanguageRepository, LanguageRepository>();
@@ -206,6 +216,11 @@ namespace Business
         public void ConfigureProductionServices(IServiceCollection services)
         {
             ConfigureServices(services);
+            services.AddTransient<ISoruSecenekRepository, SoruSecenekRepository>();
+            services.AddTransient<ISoruRepository, SoruRepository>();
+            services.AddTransient<IKonuRepository, KonuRepository>();
+            services.AddTransient<IBolumRepository, BolumRepository>();
+            services.AddTransient<ISinavRepository, SinavRepository>();
             services.AddTransient<ILogRepository, LogRepository>();
             services.AddTransient<ITranslateRepository, TranslateRepository>();
             services.AddTransient<ILanguageRepository, LanguageRepository>();
