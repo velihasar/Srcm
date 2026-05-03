@@ -1,4 +1,4 @@
-﻿
+
 using Business.Constants;
 using Core.Aspects.Autofac.Caching;
 using Business.BusinessAspects;
@@ -10,12 +10,8 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 namespace Business.Handlers.Sinavs.Commands
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class DeleteSinavCommand : IRequest<IResult>
     {
         public int Id { get; set; }
@@ -45,4 +41,3 @@ namespace Business.Handlers.Sinavs.Commands
         }
     }
 }
-

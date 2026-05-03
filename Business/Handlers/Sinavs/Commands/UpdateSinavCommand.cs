@@ -6,7 +6,6 @@ using Core.Aspects.Autofac.Logging;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,11 +13,8 @@ using System.Linq;
 using Core.Aspects.Autofac.Validation;
 using Business.Handlers.Sinavs.ValidationRules;
 
-
 namespace Business.Handlers.Sinavs.Commands
 {
-
-
     public class UpdateSinavCommand : IRequest<IResult>
     {
         public int Id { get; set; }
@@ -45,11 +41,9 @@ namespace Business.Handlers.Sinavs.Commands
             {
                 var isThereSinavRecord = await _sinavRepository.GetAsync(u => u.Id == request.Id);
 
-
                 isThereSinavRecord.KisaAd = request.KisaAd;
                 isThereSinavRecord.Ad = request.Ad;
                 isThereSinavRecord.SiraNo = request.SiraNo;
-
 
                 _sinavRepository.Update(isThereSinavRecord);
                 await _sinavRepository.SaveChangesAsync();
@@ -58,4 +52,3 @@ namespace Business.Handlers.Sinavs.Commands
         }
     }
 }
-

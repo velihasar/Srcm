@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Core.Entities.Concrete;
 using Core.Entities.Dtos;
 

@@ -7,7 +7,6 @@ using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,21 +16,17 @@ using Core.Entities.Concrete.Project;
 
 namespace Business.Handlers.Sinavs.Commands
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class CreateSinavCommand : IRequest<IResult>
     {
-
         public string KisaAd { get; set; }
         public string Ad { get; set; }
         public int SiraNo { get; set; }
-
 
         public class CreateSinavCommandHandler : IRequestHandler<CreateSinavCommand, IResult>
         {
             private readonly ISinavRepository _sinavRepository;
             private readonly IMediator _mediator;
+
             public CreateSinavCommandHandler(ISinavRepository sinavRepository, IMediator mediator)
             {
                 _sinavRepository = sinavRepository;
@@ -54,7 +49,6 @@ namespace Business.Handlers.Sinavs.Commands
                     KisaAd = request.KisaAd,
                     Ad = request.Ad,
                     SiraNo = request.SiraNo,
-
                 };
 
                 _sinavRepository.Add(addedSinav);

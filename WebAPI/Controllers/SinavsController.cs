@@ -1,13 +1,12 @@
-﻿
+
 using Business.Handlers.Sinavs.Commands;
 using Business.Handlers.Sinavs.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Entities.Concrete;
 using System.Collections.Generic;
-using Core.Entities.Concrete.Project;
+using Entities.Dtos.SinavDto;
 
 namespace WebAPI.Controllers
 {
@@ -25,7 +24,7 @@ namespace WebAPI.Controllers
         ///<return>List Sinavs</return>
         ///<response code="200"></response>
         [Produces("application/json", "text/plain")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Sinav>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<SinavDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getall")]
         public async Task<IActionResult> GetList()
@@ -45,7 +44,7 @@ namespace WebAPI.Controllers
         ///<return>Sinavs List</return>
         ///<response code="200"></response>  
         [Produces("application/json", "text/plain")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Sinav))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SinavDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getbyid")]
         public async Task<IActionResult> GetById(int id)

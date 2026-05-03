@@ -2,24 +2,22 @@
 using Business.BusinessAspects;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
+using Entities.Dtos.SinavDto;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Aspects.Autofac.Logging;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
-using System.Linq;
 using Core.Entities.Concrete.Project;
-using Microsoft.EntityFrameworkCore;
-
+using Business.Handlers.Sinavs;
 
 namespace Business.Handlers.Sinavs.Queries
 {
-    public class GetSinavQuery : IRequest<IDataResult<Sinav>>
+    public class GetSinavQuery : IRequest<IDataResult<SinavDto>>
     {
         public int Id { get; set; }
 
-        public class GetSinavQueryHandler : IRequestHandler<GetSinavQuery, IDataResult<Sinav>>
+        public class GetSinavQueryHandler : IRequestHandler<GetSinavQuery, IDataResult<SinavDto>>
         {
             private readonly ISinavRepository _sinavRepository;
             private readonly IMediator _mediator;
@@ -31,15 +29,11 @@ namespace Business.Handlers.Sinavs.Queries
             }
             [LogAspect(typeof(FileLogger))]
             [SecuredOperation(Priority = 1)]
-            public async Task<IDataResult<Sinav>> Handle(GetSinavQuery request, CancellationToken cancellationToken)
+            public async Task<IDataResult<SinavDto>> Handle(GetSinavQuery request, CancellationToken cancellationToken)
             {
-                var sinav = await _sinavRepository.GetWithIncludeAsync(
-                    p => p.Id == request.Id,
-                    q => q.Include(s => s.Bolumler.OrderBy(b => b.SiraNo))
-                        .ThenInclude(b => b.Konular.OrderBy(k => k.SiraNo))
-                        .ThenInclude(k => k.Sorular.OrderBy(so => so.SiraNo))
-                        .ThenInclude(so => so.Secenekler.OrderBy(se => se.Id)));
-                return new SuccessDataResult<Sinav>(sinav);
+                var sinav = await _sinavRepository.GetAsync(p => p.Id == request.Id);
+                var dto = SinavDtoMapper.ToDto(sinav);
+                return new SuccessDataResult<SinavDto>(dto);
             }
         }
     }
