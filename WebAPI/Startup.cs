@@ -216,17 +216,14 @@ namespace WebAPI
             app.ConfigureCustomExceptionMiddleware();
 
             _ = app.UseDbOperationClaimCreator();
-            
-            if (!env.IsProduction())
-            {
-                app.UseSwagger();
 
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("v1/swagger.json", "Backend SDK");
-                    c.DocExpansion(DocExpansion.None);
-                });
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "Srcm");
+                c.DocExpansion(DocExpansion.None);
+            });
+
             app.UseCors("AllowOrigin");
 
             // Rate Limiting Middleware
