@@ -1,5 +1,6 @@
-# Aynı imaj tanımı BE/Dockerfile ile birebir; build context yine BE olmalıdır.
-# Coolify’da tercih: Dockerfile = BE/Dockerfile, context = BE.
+# Srcm Web API — Coolify / Docker
+# Build context bu dosyanın bulunduğu klasör olmalı: BE (repo kökü değil).
+# Coolify: Dockerfile path = BE/Dockerfile, base directory / context = BE
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
