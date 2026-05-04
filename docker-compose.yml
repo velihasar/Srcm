@@ -2,7 +2,7 @@
 # Coolify: imaj içi port 80; panelde container port 80 olmalı.
 #
 # Kullanım (BE klasöründen): docker compose up --build
-# API: http://localhost:8080
+# API: http://localhost:8091 (Sinavim 8090; Srcm 8091)
 
 version: "3.8"
 
@@ -15,7 +15,7 @@ services:
       context: .
       dockerfile: WebAPI/Dockerfile
     ports:
-      - "8080:80"
+      - "8091:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
