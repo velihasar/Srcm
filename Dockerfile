@@ -1,11 +1,11 @@
 # Srcm Web API — Coolify / Docker
 # Build context bu dosyanın bulunduğu klasör olmalı: BE (repo kökü değil).
-# Coolify: Dockerfile path = BE/Dockerfile, base directory / context = BE
+# Coolify: Dockerfile path = BE/Dockerfile, context = BE, container port = 80
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
-EXPOSE 8080
-ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 80
+ENV ASPNETCORE_URLS=http://+:80
 
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src

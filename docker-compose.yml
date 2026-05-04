@@ -1,0 +1,24 @@
+# Srcm API — Sinavim ile aynı yol mantığı: bu dosya BE kökünde, context = .
+# Coolify: imaj içi port 80; panelde container port 80 olmalı.
+#
+# Kullanım (BE klasöründen): docker compose up --build
+# API: http://localhost:8080
+
+version: "3.8"
+
+services:
+  webapi:
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    build:
+      context: .
+      dockerfile: WebAPI/Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    # env_file:
+    #   - .env
+    restart: unless-stopped
