@@ -11,7 +11,7 @@ namespace Business.Handlers.SoruSeceneks.ValidationRules
         {
             RuleFor(x => x.SoruId).NotEmpty();
             RuleFor(x => x.Anahtar).NotEmpty();
-            RuleFor(x => x.metin).NotEmpty();
+            RuleFor(x => x.Metin).NotEmpty();
             RuleFor(x => x.GorselUrl).NotEmpty();
             RuleFor(x => x.DogruMu).NotEmpty();
 
@@ -23,7 +23,7 @@ namespace Business.Handlers.SoruSeceneks.ValidationRules
         {
             RuleFor(x => x.SoruId).NotEmpty();
             RuleFor(x => x.Anahtar).NotEmpty();
-            RuleFor(x => x.metin).NotEmpty();
+            RuleFor(x => x.Metin).NotEmpty();
             RuleFor(x => x.GorselUrl).NotEmpty();
             RuleFor(x => x.DogruMu).NotEmpty();
 

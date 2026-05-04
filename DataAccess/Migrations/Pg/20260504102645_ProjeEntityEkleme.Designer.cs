@@ -3,6 +3,7 @@ using System;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations.Pg
 {
     [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260504102645_ProjeEntityEkleme")]
+    partial class ProjeEntityEkleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +32,9 @@ namespace DataAccess.Migrations.Pg
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
@@ -85,6 +91,9 @@ namespace DataAccess.Migrations.Pg
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -127,6 +136,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 1,
+                            AppId = 0,
                             Code = "tr-TR",
                             IsActive = true,
                             IsDeleted = false,
@@ -135,6 +145,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 2,
+                            AppId = 0,
                             Code = "en-US",
                             IsActive = true,
                             IsDeleted = false,
@@ -174,6 +185,9 @@ namespace DataAccess.Migrations.Pg
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("Code")
                         .HasMaxLength(50)
@@ -239,6 +253,9 @@ namespace DataAccess.Migrations.Pg
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
@@ -288,6 +305,9 @@ namespace DataAccess.Migrations.Pg
                     b.Property<string>("Ad")
                         .HasColumnType("text");
 
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
@@ -335,6 +355,9 @@ namespace DataAccess.Migrations.Pg
 
                     b.Property<string>("Ad")
                         .HasColumnType("text");
+
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("BolumId")
                         .HasColumnType("integer");
@@ -384,6 +407,9 @@ namespace DataAccess.Migrations.Pg
                     b.Property<string>("Ad")
                         .HasColumnType("text");
 
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
@@ -426,6 +452,9 @@ namespace DataAccess.Migrations.Pg
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
@@ -484,6 +513,9 @@ namespace DataAccess.Migrations.Pg
                     b.Property<string>("Anahtar")
                         .HasColumnType("text");
 
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
@@ -535,6 +567,9 @@ namespace DataAccess.Migrations.Pg
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AppId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -580,6 +615,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 1,
+                            AppId = 0,
                             Code = "Login",
                             IsActive = true,
                             IsDeleted = false,
@@ -589,6 +625,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 2,
+                            AppId = 0,
                             Code = "Email",
                             IsActive = true,
                             IsDeleted = false,
@@ -598,6 +635,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 3,
+                            AppId = 0,
                             Code = "Password",
                             IsActive = true,
                             IsDeleted = false,
@@ -607,6 +645,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 4,
+                            AppId = 0,
                             Code = "Update",
                             IsActive = true,
                             IsDeleted = false,
@@ -616,6 +655,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 5,
+                            AppId = 0,
                             Code = "Delete",
                             IsActive = true,
                             IsDeleted = false,
@@ -625,6 +665,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 6,
+                            AppId = 0,
                             Code = "UsersGroups",
                             IsActive = true,
                             IsDeleted = false,
@@ -634,6 +675,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 7,
+                            AppId = 0,
                             Code = "UsersClaims",
                             IsActive = true,
                             IsDeleted = false,
@@ -643,6 +685,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 8,
+                            AppId = 0,
                             Code = "Create",
                             IsActive = true,
                             IsDeleted = false,
@@ -652,6 +695,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 9,
+                            AppId = 0,
                             Code = "Users",
                             IsActive = true,
                             IsDeleted = false,
@@ -661,6 +705,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 10,
+                            AppId = 0,
                             Code = "Groups",
                             IsActive = true,
                             IsDeleted = false,
@@ -670,6 +715,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 11,
+                            AppId = 0,
                             Code = "Login",
                             IsActive = true,
                             IsDeleted = false,
@@ -679,6 +725,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 12,
+                            AppId = 0,
                             Code = "Email",
                             IsActive = true,
                             IsDeleted = false,
@@ -688,6 +735,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 13,
+                            AppId = 0,
                             Code = "Password",
                             IsActive = true,
                             IsDeleted = false,
@@ -697,6 +745,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 14,
+                            AppId = 0,
                             Code = "Update",
                             IsActive = true,
                             IsDeleted = false,
@@ -706,6 +755,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 15,
+                            AppId = 0,
                             Code = "Delete",
                             IsActive = true,
                             IsDeleted = false,
@@ -715,6 +765,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 16,
+                            AppId = 0,
                             Code = "UsersGroups",
                             IsActive = true,
                             IsDeleted = false,
@@ -724,6 +775,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 17,
+                            AppId = 0,
                             Code = "UsersClaims",
                             IsActive = true,
                             IsDeleted = false,
@@ -733,6 +785,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 18,
+                            AppId = 0,
                             Code = "Create",
                             IsActive = true,
                             IsDeleted = false,
@@ -742,6 +795,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 19,
+                            AppId = 0,
                             Code = "Users",
                             IsActive = true,
                             IsDeleted = false,
@@ -751,6 +805,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 20,
+                            AppId = 0,
                             Code = "Groups",
                             IsActive = true,
                             IsDeleted = false,
@@ -760,6 +815,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 21,
+                            AppId = 0,
                             Code = "OperationClaim",
                             IsActive = true,
                             IsDeleted = false,
@@ -769,6 +825,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 22,
+                            AppId = 0,
                             Code = "OperationClaim",
                             IsActive = true,
                             IsDeleted = false,
@@ -778,6 +835,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 23,
+                            AppId = 0,
                             Code = "Languages",
                             IsActive = true,
                             IsDeleted = false,
@@ -787,6 +845,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 24,
+                            AppId = 0,
                             Code = "Languages",
                             IsActive = true,
                             IsDeleted = false,
@@ -796,6 +855,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 25,
+                            AppId = 0,
                             Code = "TranslateWords",
                             IsActive = true,
                             IsDeleted = false,
@@ -805,6 +865,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 26,
+                            AppId = 0,
                             Code = "TranslateWords",
                             IsActive = true,
                             IsDeleted = false,
@@ -814,6 +875,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 27,
+                            AppId = 0,
                             Code = "Management",
                             IsActive = true,
                             IsDeleted = false,
@@ -823,6 +885,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 28,
+                            AppId = 0,
                             Code = "Management",
                             IsActive = true,
                             IsDeleted = false,
@@ -832,6 +895,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 29,
+                            AppId = 0,
                             Code = "AppMenu",
                             IsActive = true,
                             IsDeleted = false,
@@ -841,6 +905,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 30,
+                            AppId = 0,
                             Code = "AppMenu",
                             IsActive = true,
                             IsDeleted = false,
@@ -850,6 +915,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 31,
+                            AppId = 0,
                             Code = "Added",
                             IsActive = true,
                             IsDeleted = false,
@@ -859,6 +925,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 32,
+                            AppId = 0,
                             Code = "Added",
                             IsActive = true,
                             IsDeleted = false,
@@ -868,6 +935,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 33,
+                            AppId = 0,
                             Code = "Updated",
                             IsActive = true,
                             IsDeleted = false,
@@ -877,6 +945,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 34,
+                            AppId = 0,
                             Code = "Updated",
                             IsActive = true,
                             IsDeleted = false,
@@ -886,6 +955,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 35,
+                            AppId = 0,
                             Code = "Deleted",
                             IsActive = true,
                             IsDeleted = false,
@@ -895,6 +965,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 36,
+                            AppId = 0,
                             Code = "Deleted",
                             IsActive = true,
                             IsDeleted = false,
@@ -904,6 +975,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 37,
+                            AppId = 0,
                             Code = "OperationClaimExists",
                             IsActive = true,
                             IsDeleted = false,
@@ -913,6 +985,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 38,
+                            AppId = 0,
                             Code = "OperationClaimExists",
                             IsActive = true,
                             IsDeleted = false,
@@ -922,6 +995,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 39,
+                            AppId = 0,
                             Code = "StringLengthMustBeGreaterThanThree",
                             IsActive = true,
                             IsDeleted = false,
@@ -931,6 +1005,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 40,
+                            AppId = 0,
                             Code = "StringLengthMustBeGreaterThanThree",
                             IsActive = true,
                             IsDeleted = false,
@@ -940,6 +1015,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 41,
+                            AppId = 0,
                             Code = "CouldNotBeVerifyCid",
                             IsActive = true,
                             IsDeleted = false,
@@ -949,6 +1025,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 42,
+                            AppId = 0,
                             Code = "CouldNotBeVerifyCid",
                             IsActive = true,
                             IsDeleted = false,
@@ -958,6 +1035,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 43,
+                            AppId = 0,
                             Code = "VerifyCid",
                             IsActive = true,
                             IsDeleted = false,
@@ -967,6 +1045,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 44,
+                            AppId = 0,
                             Code = "VerifyCid",
                             IsActive = true,
                             IsDeleted = false,
@@ -976,6 +1055,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 45,
+                            AppId = 0,
                             Code = "AuthorizationsDenied",
                             IsActive = true,
                             IsDeleted = false,
@@ -985,6 +1065,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 46,
+                            AppId = 0,
                             Code = "AuthorizationsDenied",
                             IsActive = true,
                             IsDeleted = false,
@@ -994,6 +1075,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 47,
+                            AppId = 0,
                             Code = "UserNotFound",
                             IsActive = true,
                             IsDeleted = false,
@@ -1003,6 +1085,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 48,
+                            AppId = 0,
                             Code = "UserNotFound",
                             IsActive = true,
                             IsDeleted = false,
@@ -1012,6 +1095,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 49,
+                            AppId = 0,
                             Code = "PasswordError",
                             IsActive = true,
                             IsDeleted = false,
@@ -1021,6 +1105,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 50,
+                            AppId = 0,
                             Code = "PasswordError",
                             IsActive = true,
                             IsDeleted = false,
@@ -1030,6 +1115,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 51,
+                            AppId = 0,
                             Code = "SuccessfulLogin",
                             IsActive = true,
                             IsDeleted = false,
@@ -1039,6 +1125,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 52,
+                            AppId = 0,
                             Code = "SuccessfulLogin",
                             IsActive = true,
                             IsDeleted = false,
@@ -1048,6 +1135,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 53,
+                            AppId = 0,
                             Code = "SendMobileCode",
                             IsActive = true,
                             IsDeleted = false,
@@ -1057,6 +1145,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 54,
+                            AppId = 0,
                             Code = "SendMobileCode",
                             IsActive = true,
                             IsDeleted = false,
@@ -1066,6 +1155,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 55,
+                            AppId = 0,
                             Code = "NameAlreadyExist",
                             IsActive = true,
                             IsDeleted = false,
@@ -1075,6 +1165,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 56,
+                            AppId = 0,
                             Code = "NameAlreadyExist",
                             IsActive = true,
                             IsDeleted = false,
@@ -1084,6 +1175,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 57,
+                            AppId = 0,
                             Code = "WrongCID",
                             IsActive = true,
                             IsDeleted = false,
@@ -1093,6 +1185,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 58,
+                            AppId = 0,
                             Code = "WrongCID",
                             IsActive = true,
                             IsDeleted = false,
@@ -1102,6 +1195,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 59,
+                            AppId = 0,
                             Code = "CID",
                             IsActive = true,
                             IsDeleted = false,
@@ -1111,6 +1205,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 60,
+                            AppId = 0,
                             Code = "CID",
                             IsActive = true,
                             IsDeleted = false,
@@ -1120,6 +1215,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 61,
+                            AppId = 0,
                             Code = "PasswordEmpty",
                             IsActive = true,
                             IsDeleted = false,
@@ -1129,6 +1225,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 62,
+                            AppId = 0,
                             Code = "PasswordEmpty",
                             IsActive = true,
                             IsDeleted = false,
@@ -1138,6 +1235,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 63,
+                            AppId = 0,
                             Code = "PasswordLength",
                             IsActive = true,
                             IsDeleted = false,
@@ -1147,6 +1245,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 64,
+                            AppId = 0,
                             Code = "PasswordLength",
                             IsActive = true,
                             IsDeleted = false,
@@ -1156,6 +1255,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 65,
+                            AppId = 0,
                             Code = "PasswordUppercaseLetter",
                             IsActive = true,
                             IsDeleted = false,
@@ -1165,6 +1265,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 66,
+                            AppId = 0,
                             Code = "PasswordUppercaseLetter",
                             IsActive = true,
                             IsDeleted = false,
@@ -1174,6 +1275,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 67,
+                            AppId = 0,
                             Code = "PasswordLowercaseLetter",
                             IsActive = true,
                             IsDeleted = false,
@@ -1183,6 +1285,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 68,
+                            AppId = 0,
                             Code = "PasswordLowercaseLetter",
                             IsActive = true,
                             IsDeleted = false,
@@ -1192,6 +1295,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 69,
+                            AppId = 0,
                             Code = "PasswordDigit",
                             IsActive = true,
                             IsDeleted = false,
@@ -1201,6 +1305,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 70,
+                            AppId = 0,
                             Code = "PasswordDigit",
                             IsActive = true,
                             IsDeleted = false,
@@ -1210,6 +1315,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 71,
+                            AppId = 0,
                             Code = "PasswordSpecialCharacter",
                             IsActive = true,
                             IsDeleted = false,
@@ -1219,6 +1325,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 72,
+                            AppId = 0,
                             Code = "PasswordSpecialCharacter",
                             IsActive = true,
                             IsDeleted = false,
@@ -1228,6 +1335,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 73,
+                            AppId = 0,
                             Code = "SendPassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1237,6 +1345,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 74,
+                            AppId = 0,
                             Code = "SendPassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1246,6 +1355,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 75,
+                            AppId = 0,
                             Code = "InvalidCode",
                             IsActive = true,
                             IsDeleted = false,
@@ -1255,6 +1365,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 76,
+                            AppId = 0,
                             Code = "InvalidCode",
                             IsActive = true,
                             IsDeleted = false,
@@ -1264,6 +1375,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 77,
+                            AppId = 0,
                             Code = "SmsServiceNotFound",
                             IsActive = true,
                             IsDeleted = false,
@@ -1273,6 +1385,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 78,
+                            AppId = 0,
                             Code = "SmsServiceNotFound",
                             IsActive = true,
                             IsDeleted = false,
@@ -1282,6 +1395,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 79,
+                            AppId = 0,
                             Code = "TrueButCellPhone",
                             IsActive = true,
                             IsDeleted = false,
@@ -1291,6 +1405,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 80,
+                            AppId = 0,
                             Code = "TrueButCellPhone",
                             IsActive = true,
                             IsDeleted = false,
@@ -1300,6 +1415,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 81,
+                            AppId = 0,
                             Code = "TokenProviderException",
                             IsActive = true,
                             IsDeleted = false,
@@ -1309,6 +1425,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 82,
+                            AppId = 0,
                             Code = "TokenProviderException",
                             IsActive = true,
                             IsDeleted = false,
@@ -1318,6 +1435,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 83,
+                            AppId = 0,
                             Code = "Unknown",
                             IsActive = true,
                             IsDeleted = false,
@@ -1327,6 +1445,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 84,
+                            AppId = 0,
                             Code = "Unknown",
                             IsActive = true,
                             IsDeleted = false,
@@ -1336,6 +1455,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 85,
+                            AppId = 0,
                             Code = "NewPassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1345,6 +1465,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 86,
+                            AppId = 0,
                             Code = "NewPassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1354,6 +1475,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 87,
+                            AppId = 0,
                             Code = "ChangePassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1363,6 +1485,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 88,
+                            AppId = 0,
                             Code = "ChangePassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1372,6 +1495,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 89,
+                            AppId = 0,
                             Code = "Save",
                             IsActive = true,
                             IsDeleted = false,
@@ -1381,6 +1505,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 90,
+                            AppId = 0,
                             Code = "Save",
                             IsActive = true,
                             IsDeleted = false,
@@ -1390,6 +1515,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 91,
+                            AppId = 0,
                             Code = "GroupName",
                             IsActive = true,
                             IsDeleted = false,
@@ -1399,6 +1525,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 92,
+                            AppId = 0,
                             Code = "GroupName",
                             IsActive = true,
                             IsDeleted = false,
@@ -1408,6 +1535,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 93,
+                            AppId = 0,
                             Code = "FullName",
                             IsActive = true,
                             IsDeleted = false,
@@ -1417,6 +1545,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 94,
+                            AppId = 0,
                             Code = "FullName",
                             IsActive = true,
                             IsDeleted = false,
@@ -1426,6 +1555,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 95,
+                            AppId = 0,
                             Code = "Address",
                             IsActive = true,
                             IsDeleted = false,
@@ -1435,6 +1565,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 96,
+                            AppId = 0,
                             Code = "Address",
                             IsActive = true,
                             IsDeleted = false,
@@ -1444,6 +1575,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 97,
+                            AppId = 0,
                             Code = "Notes",
                             IsActive = true,
                             IsDeleted = false,
@@ -1453,6 +1585,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 98,
+                            AppId = 0,
                             Code = "Notes",
                             IsActive = true,
                             IsDeleted = false,
@@ -1462,6 +1595,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 99,
+                            AppId = 0,
                             Code = "ConfirmPassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1471,6 +1605,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 100,
+                            AppId = 0,
                             Code = "ConfirmPassword",
                             IsActive = true,
                             IsDeleted = false,
@@ -1480,6 +1615,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 101,
+                            AppId = 0,
                             Code = "Code",
                             IsActive = true,
                             IsDeleted = false,
@@ -1489,6 +1625,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 102,
+                            AppId = 0,
                             Code = "Code",
                             IsActive = true,
                             IsDeleted = false,
@@ -1498,6 +1635,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 103,
+                            AppId = 0,
                             Code = "Alias",
                             IsActive = true,
                             IsDeleted = false,
@@ -1507,6 +1645,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 104,
+                            AppId = 0,
                             Code = "Alias",
                             IsActive = true,
                             IsDeleted = false,
@@ -1516,6 +1655,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 105,
+                            AppId = 0,
                             Code = "Description",
                             IsActive = true,
                             IsDeleted = false,
@@ -1525,6 +1665,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 106,
+                            AppId = 0,
                             Code = "Description",
                             IsActive = true,
                             IsDeleted = false,
@@ -1534,6 +1675,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 107,
+                            AppId = 0,
                             Code = "Value",
                             IsActive = true,
                             IsDeleted = false,
@@ -1543,6 +1685,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 108,
+                            AppId = 0,
                             Code = "Value",
                             IsActive = true,
                             IsDeleted = false,
@@ -1552,6 +1695,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 109,
+                            AppId = 0,
                             Code = "LangCode",
                             IsActive = true,
                             IsDeleted = false,
@@ -1561,6 +1705,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 110,
+                            AppId = 0,
                             Code = "LangCode",
                             IsActive = true,
                             IsDeleted = false,
@@ -1570,6 +1715,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 111,
+                            AppId = 0,
                             Code = "Name",
                             IsActive = true,
                             IsDeleted = false,
@@ -1579,6 +1725,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 112,
+                            AppId = 0,
                             Code = "Name",
                             IsActive = true,
                             IsDeleted = false,
@@ -1588,6 +1735,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 113,
+                            AppId = 0,
                             Code = "MobilePhones",
                             IsActive = true,
                             IsDeleted = false,
@@ -1597,6 +1745,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 114,
+                            AppId = 0,
                             Code = "MobilePhones",
                             IsActive = true,
                             IsDeleted = false,
@@ -1606,6 +1755,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 115,
+                            AppId = 0,
                             Code = "NoRecordsFound",
                             IsActive = true,
                             IsDeleted = false,
@@ -1615,6 +1765,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 116,
+                            AppId = 0,
                             Code = "NoRecordsFound",
                             IsActive = true,
                             IsDeleted = false,
@@ -1624,6 +1775,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 117,
+                            AppId = 0,
                             Code = "Required",
                             IsActive = true,
                             IsDeleted = false,
@@ -1633,6 +1785,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 118,
+                            AppId = 0,
                             Code = "Required",
                             IsActive = true,
                             IsDeleted = false,
@@ -1642,6 +1795,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 119,
+                            AppId = 0,
                             Code = "Permissions",
                             IsActive = true,
                             IsDeleted = false,
@@ -1651,6 +1805,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 120,
+                            AppId = 0,
                             Code = "Permissions",
                             IsActive = true,
                             IsDeleted = false,
@@ -1660,6 +1815,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 121,
+                            AppId = 0,
                             Code = "GroupList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1669,6 +1825,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 122,
+                            AppId = 0,
                             Code = "GroupList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1678,6 +1835,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 123,
+                            AppId = 0,
                             Code = "GrupPermissions",
                             IsActive = true,
                             IsDeleted = false,
@@ -1687,6 +1845,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 124,
+                            AppId = 0,
                             Code = "GrupPermissions",
                             IsActive = true,
                             IsDeleted = false,
@@ -1696,6 +1855,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 125,
+                            AppId = 0,
                             Code = "Add",
                             IsActive = true,
                             IsDeleted = false,
@@ -1705,6 +1865,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 126,
+                            AppId = 0,
                             Code = "Add",
                             IsActive = true,
                             IsDeleted = false,
@@ -1714,6 +1875,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 127,
+                            AppId = 0,
                             Code = "UserList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1723,6 +1885,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 128,
+                            AppId = 0,
                             Code = "UserList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1732,6 +1895,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 129,
+                            AppId = 0,
                             Code = "OperationClaimList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1741,6 +1905,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 130,
+                            AppId = 0,
                             Code = "OperationClaimList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1750,6 +1915,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 131,
+                            AppId = 0,
                             Code = "LanguageList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1759,6 +1925,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 132,
+                            AppId = 0,
                             Code = "LanguageList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1768,6 +1935,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 133,
+                            AppId = 0,
                             Code = "TranslateList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1777,6 +1945,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 134,
+                            AppId = 0,
                             Code = "TranslateList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1786,6 +1955,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 135,
+                            AppId = 0,
                             Code = "LogList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1795,6 +1965,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 136,
+                            AppId = 0,
                             Code = "LogList",
                             IsActive = true,
                             IsDeleted = false,
@@ -1804,6 +1975,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 137,
+                            AppId = 0,
                             Code = "DeleteConfirm",
                             IsActive = true,
                             IsDeleted = false,
@@ -1813,6 +1985,7 @@ namespace DataAccess.Migrations.Pg
                         new
                         {
                             Id = 138,
+                            AppId = 0,
                             Code = "DeleteConfirm",
                             IsActive = true,
                             IsDeleted = false,

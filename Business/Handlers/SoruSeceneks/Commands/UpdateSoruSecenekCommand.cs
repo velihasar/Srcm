@@ -1,18 +1,20 @@
 ﻿
-using Business.Constants;
 using Business.BusinessAspects;
+using Business.Constants;
+using Business.Handlers.SoruSeceneks.ValidationRules;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Core.Extensions;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Core.Aspects.Autofac.Validation;
-using Business.Handlers.SoruSeceneks.ValidationRules;
 
 
 namespace Business.Handlers.SoruSeceneks.Commands
@@ -24,7 +26,7 @@ namespace Business.Handlers.SoruSeceneks.Commands
         public int Id { get; set; }
         public int SoruId { get; set; }
         public string Anahtar { get; set; }
-        public string metin { get; set; }
+        public string Metin { get; set; }
         public string GorselUrl { get; set; }
         public bool DogruMu { get; set; }
 
@@ -50,9 +52,11 @@ namespace Business.Handlers.SoruSeceneks.Commands
 
                 isThereSoruSecenekRecord.SoruId = request.SoruId;
                 isThereSoruSecenekRecord.Anahtar = request.Anahtar;
-                isThereSoruSecenekRecord.metin = request.metin;
+                isThereSoruSecenekRecord.Metin = request.Metin;
                 isThereSoruSecenekRecord.GorselUrl = request.GorselUrl;
                 isThereSoruSecenekRecord.DogruMu = request.DogruMu;
+                isThereSoruSecenekRecord.UpdatedDate = DateTime.Now;
+                isThereSoruSecenekRecord.UpdatedBy = UserInfoExtensions.GetUserId();
 
 
                 _soruSecenekRepository.Update(isThereSoruSecenekRecord);

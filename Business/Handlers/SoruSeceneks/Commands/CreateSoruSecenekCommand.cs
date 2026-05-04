@@ -1,19 +1,21 @@
 ﻿
 using Business.BusinessAspects;
 using Business.Constants;
+using Business.Handlers.SoruSeceneks.ValidationRules;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Core.Entities.Concrete.Project;
+using Core.Extensions;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Business.Handlers.SoruSeceneks.ValidationRules;
-using Core.Entities.Concrete.Project;
 
 namespace Business.Handlers.SoruSeceneks.Commands
 {
@@ -25,7 +27,7 @@ namespace Business.Handlers.SoruSeceneks.Commands
 
         public int SoruId { get; set; }
         public string Anahtar { get; set; }
-        public string metin { get; set; }
+        public string Metin { get; set; }
         public string GorselUrl { get; set; }
         public bool DogruMu { get; set; }
 
@@ -55,9 +57,11 @@ namespace Business.Handlers.SoruSeceneks.Commands
                 {
                     SoruId = request.SoruId,
                     Anahtar = request.Anahtar,
-                    metin = request.metin,
+                    Metin = request.Metin,
                     GorselUrl = request.GorselUrl,
                     DogruMu = request.DogruMu,
+                    CreatedBy = UserInfoExtensions.GetUserId(),
+                    CreatedDate = DateTime.Now,
 
                 };
 

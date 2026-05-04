@@ -1,18 +1,20 @@
 
 using Business.BusinessAspects;
 using Business.Constants;
+using Business.Handlers.Sinavs.ValidationRules;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Core.Entities.Concrete.Project;
+using Core.Extensions;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using MediatR;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Business.Handlers.Sinavs.ValidationRules;
-using Core.Entities.Concrete.Project;
 
 namespace Business.Handlers.Sinavs.Commands
 {
@@ -49,6 +51,8 @@ namespace Business.Handlers.Sinavs.Commands
                     KisaAd = request.KisaAd,
                     Ad = request.Ad,
                     SiraNo = request.SiraNo,
+                    CreatedBy = UserInfoExtensions.GetUserId(),
+                    CreatedDate = DateTime.Now,
                 };
 
                 _sinavRepository.Add(addedSinav);

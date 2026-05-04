@@ -17,8 +17,8 @@
 		<PackageReference Include="Hangfire.RecurringJobExtensions" Version="1.1.6" />
 		<PackageReference Include="Hangfire.Redis.StackExchange" Version="1.10.0" />
 		<PackageReference Include="Hangfire.SqlServer" Version="1.8.17" />
-		<PackageReference Include="MailKit" Version="4.15.1" />
-		<PackageReference Include="MimeKit" Version="4.15.1" />
+		<PackageReference Include="MailKit" Version="4.16.0" />
+		<PackageReference Include="MimeKit" Version="4.16.0" />
 		<PackageReference Include="Minio" Version="6.0.5" />
 		<PackageReference Include="Serilog.Sinks.Postgresql.Alternative" Version="4.1.1" />
 		<PackageReference Include="MediatR" Version="12.4.1" />

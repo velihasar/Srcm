@@ -1,18 +1,20 @@
 ﻿
-using Business.Constants;
 using Business.BusinessAspects;
+using Business.Constants;
+using Business.Handlers.Sorus.ValidationRules;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Core.Extensions;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Core.Aspects.Autofac.Validation;
-using Business.Handlers.Sorus.ValidationRules;
 
 
 namespace Business.Handlers.Sorus.Commands
@@ -53,6 +55,8 @@ namespace Business.Handlers.Sorus.Commands
                 isThereSoruRecord.GorselUrl = request.GorselUrl;
                 isThereSoruRecord.SiraNo = request.SiraNo;
                 isThereSoruRecord.ErisimSeviyesi = request.ErisimSeviyesi;
+                isThereSoruRecord.UpdatedDate = DateTime.Now;
+                isThereSoruRecord.UpdatedBy = UserInfoExtensions.GetUserId();
 
 
                 _soruRepository.Update(isThereSoruRecord);

@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Core.Entities.Concrete.Project
 {
-    public class Soru:IEntity
+    public class Soru:BaseEntity,IEntity
     {
-        public int Id { get; set; }
         public int KonuId { get; set; }
         public Konu Konu { get; set; }
         public string Metin { get; set; }

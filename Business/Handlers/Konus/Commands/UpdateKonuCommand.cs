@@ -1,18 +1,20 @@
 ﻿
-using Business.Constants;
 using Business.BusinessAspects;
+using Business.Constants;
+using Business.Handlers.Konus.ValidationRules;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Core.Extensions;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using MediatR;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Core.Aspects.Autofac.Validation;
-using Business.Handlers.Konus.ValidationRules;
 
 
 namespace Business.Handlers.Konus.Commands
@@ -49,6 +51,8 @@ namespace Business.Handlers.Konus.Commands
                 isThereKonuRecord.BolumId = request.BolumId;
                 isThereKonuRecord.Ad = request.Ad;
                 isThereKonuRecord.SiraNo = request.SiraNo;
+                isThereKonuRecord.UpdatedDate = DateTime.Now;
+                isThereKonuRecord.UpdatedBy = UserInfoExtensions.GetUserId();
 
 
                 _konuRepository.Update(isThereKonuRecord);
