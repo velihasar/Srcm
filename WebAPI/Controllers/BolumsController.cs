@@ -67,6 +67,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody] CreateBolumCommand createBolum)
         {
             var result = await Mediator.Send(createBolum);
@@ -86,6 +87,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateBolumCommand updateBolum)
         {
             var result = await Mediator.Send(updateBolum);
@@ -105,6 +107,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpDelete]
+        [Authorize]
         public async Task<IActionResult> Delete([FromBody] DeleteBolumCommand deleteBolum)
         {
             var result = await Mediator.Send(deleteBolum);

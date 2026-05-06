@@ -28,6 +28,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<SoruSecenek>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getall")]
+        [Authorize]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetSoruSeceneksQuery());
@@ -48,6 +49,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SoruSecenek))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getbyid")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await Mediator.Send(new GetSoruSecenekQuery { Id = id });
@@ -67,6 +69,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody] CreateSoruSecenekCommand createSoruSecenek)
         {
             var result = await Mediator.Send(createSoruSecenek);
@@ -86,6 +89,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateSoruSecenekCommand updateSoruSecenek)
         {
             var result = await Mediator.Send(updateSoruSecenek);
@@ -105,6 +109,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpDelete]
+        [Authorize]
         public async Task<IActionResult> Delete([FromBody] DeleteSoruSecenekCommand deleteSoruSecenek)
         {
             var result = await Mediator.Send(deleteSoruSecenek);

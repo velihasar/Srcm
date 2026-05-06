@@ -29,7 +29,7 @@ namespace Business.Handlers.Bolums.Queries
                 _mediator = mediator;
             }
             [LogAspect(typeof(FileLogger))]
-            [SecuredOperation(Priority = 1)]
+            //[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<Bolum>> Handle(GetBolumQuery request, CancellationToken cancellationToken)
             {
                 var bolum = await _bolumRepository.GetWithIncludeAsync(

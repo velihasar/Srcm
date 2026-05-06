@@ -29,7 +29,7 @@ namespace Business.Handlers.Konus.Queries
                 _mediator = mediator;
             }
             [LogAspect(typeof(FileLogger))]
-            [SecuredOperation(Priority = 1)]
+            //[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<Konu>> Handle(GetKonuQuery request, CancellationToken cancellationToken)
             {
                 var konu = await _konuRepository.GetWithIncludeAsync(

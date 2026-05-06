@@ -67,6 +67,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody] CreateKonuCommand createKonu)
         {
             var result = await Mediator.Send(createKonu);
@@ -86,6 +87,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateKonuCommand updateKonu)
         {
             var result = await Mediator.Send(updateKonu);
@@ -105,6 +107,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpDelete]
+        [Authorize]
         public async Task<IActionResult> Delete([FromBody] DeleteKonuCommand deleteKonu)
         {
             var result = await Mediator.Send(deleteKonu);

@@ -28,6 +28,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Soru>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getall")]
+        [Authorize]
         public async Task<IActionResult> GetList()
         {
             var result = await Mediator.Send(new GetSorusQuery());
@@ -48,6 +49,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Soru))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpGet("getbyid")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await Mediator.Send(new GetSoruQuery { Id = id });
@@ -67,6 +69,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody] CreateSoruCommand createSoru)
         {
             var result = await Mediator.Send(createSoru);
@@ -86,6 +89,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateSoruCommand updateSoru)
         {
             var result = await Mediator.Send(updateSoru);
@@ -105,6 +109,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         [HttpDelete]
+        [Authorize]
         public async Task<IActionResult> Delete([FromBody] DeleteSoruCommand deleteSoru)
         {
             var result = await Mediator.Send(deleteSoru);

@@ -32,9 +32,9 @@ namespace Business.Handlers.Bolums.Queries
             }
 
             [PerformanceAspect(5)]
-            [CacheAspect(10)]
-            [LogAspect(typeof(FileLogger))]
-            [SecuredOperation(Priority = 1)]
+            //[CacheAspect(10)]
+            //[LogAspect(typeof(FileLogger))]
+            //[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<IEnumerable<Bolum>>> Handle(GetBolumsQuery request, CancellationToken cancellationToken)
             {
                 var list = await _bolumRepository.FindAllAsync(

@@ -34,7 +34,7 @@ namespace Business.Handlers.Konus.Queries
             [PerformanceAspect(5)]
             [CacheAspect(10)]
             [LogAspect(typeof(FileLogger))]
-            [SecuredOperation(Priority = 1)]
+            //[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<IEnumerable<Konu>>> Handle(GetKonusQuery request, CancellationToken cancellationToken)
             {
                 var list = await _konuRepository.FindAllAsync(
