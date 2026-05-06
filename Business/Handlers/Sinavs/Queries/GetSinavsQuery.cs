@@ -30,9 +30,9 @@ namespace Business.Handlers.Sinavs.Queries
             }
 
             [PerformanceAspect(5)]
-            [CacheAspect(10)]
-            [LogAspect(typeof(FileLogger))]
-            [SecuredOperation(Priority = 1)]
+            //[CacheAspect(10)]
+            //[LogAspect(typeof(FileLogger))]
+            //[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<IEnumerable<SinavDto>>> Handle(GetSinavsQuery request, CancellationToken cancellationToken)
             {
                 var list = await _sinavRepository.GetListAsync();

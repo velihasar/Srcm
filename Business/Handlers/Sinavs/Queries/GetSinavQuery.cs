@@ -28,7 +28,7 @@ namespace Business.Handlers.Sinavs.Queries
                 _mediator = mediator;
             }
             [LogAspect(typeof(FileLogger))]
-            [SecuredOperation(Priority = 1)]
+            //[SecuredOperation(Priority = 1)]
             public async Task<IDataResult<SinavDto>> Handle(GetSinavQuery request, CancellationToken cancellationToken)
             {
                 var sinav = await _sinavRepository.GetAsync(p => p.Id == request.Id);
