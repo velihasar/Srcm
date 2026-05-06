@@ -28,7 +28,7 @@ namespace Business.Handlers.Sinavs.Commands
             }
 
             [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(FileLogger))]
+            //[LogAspect(typeof(FileLogger))]
             [SecuredOperation(Priority = 1)]
             public async Task<IResult> Handle(DeleteSinavCommand request, CancellationToken cancellationToken)
             {

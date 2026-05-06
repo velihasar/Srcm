@@ -36,8 +36,8 @@ namespace Business.Handlers.Sinavs.Commands
             }
 
             [ValidationAspect(typeof(CreateSinavValidator), Priority = 1)]
-            [CacheRemoveAspect("Get")]
-            [LogAspect(typeof(FileLogger))]
+            //[CacheRemoveAspect("Get")]
+            //[LogAspect(typeof(FileLogger))]
             [SecuredOperation(Priority = 1)]
             public async Task<IResult> Handle(CreateSinavCommand request, CancellationToken cancellationToken)
             {
