@@ -1,4 +1,4 @@
-﻿
+
 using Business.Handlers.Sorus.Commands;
 using Business.Handlers.Sorus.Queries;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Entities.Concrete;
 using System.Collections.Generic;
 using Core.Entities.Concrete.Project;
+using System;
 
 namespace WebAPI.Controllers
 {
@@ -118,6 +119,37 @@ namespace WebAPI.Controllers
                 return Ok(result.Message);
             }
             return BadRequest(result.Message);
+        }
+
+        /// <summary>
+        /// Soru + 4 veya 5 şık (form alanları). 5. şık boşsa yalnızca 4 şık kaydedilir. GorselUrl yok.
+        /// </summary>
+        
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [HttpPost("withseceneklerform")]
+        [Authorize]
+        public async Task<IActionResult> AddWithSeceneklerForm([FromForm] CreateSoruWithSeceneklerFormCommand createSoruWithSecenekler)
+        {
+           try
+            {
+                var result = await Mediator.Send(createSoruWithSecenekler);
+                if (result.Success)
+                {
+                    return Ok(result.Message);
+                }
+                return BadRequest(result.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { 
+                    error = ex.Message, 
+                    stackTrace = ex.StackTrace,
+                    innerException = ex.InnerException?.Message,
+                    source = ex.Source
+                });
+            }
         }
     }
 }

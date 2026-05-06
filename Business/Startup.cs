@@ -141,8 +141,12 @@ namespace Business
 
             ValidatorOptions.Global.DisplayNameResolver = (type, memberInfo, expression) =>
             {
-                return memberInfo.GetCustomAttribute<DisplayAttribute>()
-                    ?.GetName();
+                if (memberInfo is null)
+                {
+                    return null;
+                }
+
+                return memberInfo.GetCustomAttribute<DisplayAttribute>()?.GetName();
             };
 
             // Minio Ayarları

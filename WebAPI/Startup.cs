@@ -144,7 +144,12 @@ namespace WebAPI
                 });
             services.AddSwaggerGen(c =>
             {
-                c.IncludeXmlComments(Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml"));
+                var assembly = typeof(Startup).Assembly;
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, $"{assembly.GetName().Name}.xml");
+                if (File.Exists(xmlPath))
+                {
+                    c.IncludeXmlComments(xmlPath);
+                }
             });
 
             services.AddTransient<FileLogger>();
